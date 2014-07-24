@@ -26,6 +26,9 @@ And also it requires fairly recent kernel to work.
 BUGS AND SUGGESTIONS
 	contact me at hackman at cpan.org
 
+REPOSITORY
+	http://github.com/hackman/linux-setns
+
 COPYRIGHT AND LICENCE
 
 This code is under GPLv2.
