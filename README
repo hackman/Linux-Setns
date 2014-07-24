@@ -5,8 +5,8 @@ setns is used to change the current namespace of the process by specifying a fil
 
 So you mus provide a file descriptor and a type (CLONE_ALL, CLONE_NEWIPC, CLONE_NEWNET and CLONE_NEWUTS).
 
-On successfull execution your process is now in a changed namespace.
-In case of failure, error is returneCLONE_NEWIPC, CLONE_NEWNET and CLONE_NEWUTS).
+On successfull execution your process will now be in the desired namespace.
+In case of failure, error is returned. The current version of the module does not give you detailed information for the errors returned by setns(2).
 
 INSTALLATION
 
@@ -20,13 +20,18 @@ To install this module type the following:
 DEPENDENCIES
 
 This module does not require any 3rd party libraries, but it does require your machine to have the <sched.h> for build.
+And also it requires fairly recent kernel to work.
+
+
+BUGS AND SUGGESTIONS
+	contact me at hackman at cpan.org
 
 COPYRIGHT AND LICENCE
 
 This code is under GPLv2.
 A proper copy of the license can be found in the LICENSE file located in the current directory.
 
-Copyright (C) 2014 by Marian Marinov
+Copyright (C) 2014 by Marian HackMan Marinov
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.18.1 or,
