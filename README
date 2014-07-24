@@ -1,16 +1,12 @@
 Linux-Setns version 0.01
 ========================
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+setns is used to change the current namespace of the process by specifying a file descriptor to a currently available namespace.
 
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
+So you mus provide a file descriptor and a type (CLONE_ALL, CLONE_NEWIPC, CLONE_NEWNET and CLONE_NEWUTS).
+
+On successfull execution your process is now in a changed namespace.
+In case of failure, error is returneCLONE_NEWIPC, CLONE_NEWNET and CLONE_NEWUTS).
 
 INSTALLATION
 
@@ -23,13 +19,12 @@ To install this module type the following:
 
 DEPENDENCIES
 
-This module requires these other modules and libraries:
-
-  blah blah blah
+This module does not require any 3rd party libraries, but it does require your machine to have the <sched.h> for build.
 
 COPYRIGHT AND LICENCE
 
-Put the correct copyright and licence information here.
+This code is under GPLv2.
+A proper copy of the license can be found in the LICENSE file located in the current directory.
 
 Copyright (C) 2014 by Marian Marinov
 
