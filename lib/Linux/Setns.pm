@@ -99,6 +99,10 @@ to namespace pointed by a file descriptor(usually located in /proc/PID/ns/{ipc,m
 
 Note: keep in mind that using CLONE_NEWIPC, CLONE_NEWNET or CLONE_NEWUTS will fail if the FD is not of that type.
 
+RETRUN VALUE
+	1 on success
+	0 on failure
+
 
 =head2 EXPORT
 
