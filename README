@@ -6,7 +6,7 @@ setns is used to change the current namespace of the process by specifying a fil
 So you mus provide a file descriptor and a type (CLONE_ALL, CLONE_NEWIPC, CLONE_NEWNET and CLONE_NEWUTS).
 
 On successfull execution your process will now be in the desired namespace.
-In case of failure, error is returned. The current version of the module does not give you detailed information for the errors returned by setns(2).
+In case of failure, error message is printed to STDOUT.
 
 INSTALLATION
 
