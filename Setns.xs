@@ -24,7 +24,6 @@ PPCODE:
 	ST(0) = sv_newmortal();
 	fd = PerlIO_fileno(stream);
 	if (setns(fd, nstype) == 0)
-//		sv_setiv(ST(0), 0);
 		XPUSHs(sv_2mortal(newSVnv(0)));
 	else
 		XPUSHs(sv_2mortal(newSVnv(errno)));
