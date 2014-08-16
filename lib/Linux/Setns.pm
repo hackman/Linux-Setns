@@ -70,7 +70,7 @@ Linux::Setns - Perl extension for switching the current prcoess namespace to ano
 
 =head1 SYNOPSIS
 
-	use Linux::Unshare qw(unshare :clone);
+	use Linux::setns qw(setns CLONE_ALL CLONE_NEWIPC CLONE_NEWNET CLONE_NEWUTC);
 
 	die "setns() requires root privileges\n" if $<;
 
