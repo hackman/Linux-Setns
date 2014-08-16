@@ -1,5 +1,8 @@
 Revision history for Perl extension Linux::Setns.
 
+0.03  Sun Aug 17 02:40:05 2014
+    - Updated the example, as it had errors(the use statment was for unshare, not setns)
+
 0.02  Mon Jul 28 04:08:09 2014
 	- Updated the version and removed some commented code
 	- Added basic META.yml file
