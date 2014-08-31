@@ -1,4 +1,6 @@
-Linux-Setns version 0.02
+Copyright (C) 2014 by Marian HackMan Marinov
+
+Linux-Setns
 ========================
 
 setns is used to change the current namespace of the process by specifying a file descriptor to a currently available namespace.
