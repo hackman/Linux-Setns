@@ -25,7 +25,7 @@ our @EXPORT = qw(
 	setns CLONE_ALL CLONE_NEWIPC CLONE_NEWNET CLONE_NEWUTS
 );
 
-our $VERSION = '0.02';
+our $VERSION = '0.04';
 
 use constant {
 	CLONE_ALL => 0,
