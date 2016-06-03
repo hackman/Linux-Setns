@@ -1,5 +1,11 @@
 Revision history for Perl extension Linux::Setns.
 
+0.05  Fri Jun 03 10:52:49 2016
+	- Replaced the Perl 5.18 requirement with Perl 5.10
+
+0.04  Mon Sep 01 00:57:51 2014
+	- Added repository and lincense links
+
 0.03  Sun Aug 17 02:40:05 2014
     - Updated the example, as it had errors(the use statment was for unshare, not setns)
 
