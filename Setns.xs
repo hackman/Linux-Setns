@@ -12,6 +12,17 @@
 #include <sched.h>
 #define CLONE_ALL 0
 
+#ifndef HAVE_SETNS
+static inline int setns(int fd, int nstype) {
+#ifdef __NR_setns
+	return syscall(__NR_setns, fd, nstype);
+#else
+	errno = ENOSYS;
+	return -1;
+#endif
+}
+#endif
+
 #define InputStream	PerlIO *
 
 MODULE = Linux::Setns		PACKAGE = Linux::Setns
