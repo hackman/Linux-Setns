@@ -22,6 +22,10 @@ for i in $excludes; do
 	exclude_option="$exclude_option --exclude $i"
 done
 
+# Update the copyright year
+year=$(date +%Y)
+sed -i "/Copyright.*Marian/s/[0-9]\+/$year/" $proj/LICENSE $proj/lib/Linux/Setns.pm
+
 if [ -f $proj-${ver}.tar.gz ]; then
 	rm -f $proj-${ver}.tar.gz
 fi
