@@ -1,5 +1,9 @@
 Revision history for Perl extension Linux::Setns.
 
+1.02  Thu Aug 18 15:45:00 2016
+	- Added CLONE_NEWNS, CLONE_NEWPID and CLONE_NEWUSER
+	- Fixed the documentation in Setns.pm
+
 1.01  Thu Aug 18 15:05:00 2016
 	- Changed the license to Perl(thanks to Mohammad S Anwar - https://github.com/Manwar)
 	- Update the documentation of the Perl module to reflect the changes done in 1.01
