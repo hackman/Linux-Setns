@@ -1,6 +1,10 @@
 Revision history for Perl extension Linux::Setns.
 
-1.00  Fri Aug 17 19:20:10 2016
+1.01  Thu Aug 18 15:05:00 2016
+	- Changed the license to Perl(thanks to Mohammad S Anwar - https://github.com/Manwar)
+	- Update the documentation of the Perl module to reflect the changes done in 1.01
+
+1.00  Wed Aug 17 19:20:10 2016
 	- Almost complete rewrite of the function!
 	- Changed the interface, to setns(). Now instead of file descriptor we directly give it path to a namespace file. This removes the need to convert Perl FD into C FD.
 	- Improved the error handling and now we catch all setns() errors
