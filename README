@@ -1,4 +1,4 @@
-Copyright (C) 2014 by Marian HackMan Marinov
+Copyright (C) 2016 by Marian HackMan Marinov
 
 Linux-Setns
 ========================
@@ -21,8 +21,12 @@ To install this module type the following:
 
 DEPENDENCIES
 
-This module does not require any 3rd party libraries, but it does require your machine to have the <sched.h> for build.
+This module does not require any 3rd party libraries, but it does require your machine to have SYS_setns in <sys/syscall.h> for build.
 And also it requires fairly recent kernel to work.
+
+The interface to setns() changed between 0.05 and 1.00.
+
+Version before 1.00 does not work on machines with older glibc.
 
 
 BUGS AND SUGGESTIONS
