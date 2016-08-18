@@ -25,7 +25,7 @@ our @EXPORT = qw(
 	setns CLONE_ALL CLONE_NEWIPC CLONE_NEWNET CLONE_NEWUTS
 );
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 use constant {
 	CLONE_ALL => 0,
@@ -63,26 +63,36 @@ __END__
 
 =head1 NAME
 
-Linux::Setns - Perl extension for switching the current prcoess namespace to another namespace pointed by a file descriptor.
+Linux::Setns - Perl extension for switching the current process namespace to another namespace pointed by a path to the ns file descriptor.
 
 =head1 SYNOPSIS
 
-	use Linux::setns qw(setns CLONE_ALL CLONE_NEWIPC CLONE_NEWNET CLONE_NEWUTC);
+	use Linux::setns qw(setns CLONE_ALL CLONE_NEWIPC CLONE_NEWNET CLONE_NEWUTS CLONE_NEWUSER CLONE_NEWPID);
 
-	die "setns() requires root privileges\n" if $<;
+	die "setns() requires root privileges\n" if $>;
 
-	open my $FD, '<', "/proc/PID/ns/mnt" or die "setns(): unable to open FD\n";
+	setns("/proc/PID/ns/mnt", CLONE_ALL);
+	# now your process is in the same namespaces(IPC,NET,UTS,PID,USER,MOUNT) as the /proc/PID/ns/mnt 
 
-	setns($FD, CLONE_ALL);
-	# now your process is in the same namespace as the $FD you have supplied
-	# in this case, you have to previously know what is the type of namespace of that $FD
+	# If you want to change only one of your namespaces you can use any of the bellow examples:
 
-	setns($FD, CLONE_NEWIPC);
-	# Switch your current IPC namespace to the one pointed by $FD
-	setns($FD, CLONE_NEWNET);
-	# Switch your current Network namespace to the one pointed by $FD
-	setns($FD, CLONE_NEWUTC);
-	# Switch your current UTS namespace to the one pointed by $FD
+	# Switch your current Mount namespace to the one pointed by /proc/PID/ns/mnt
+	setns("/proc/PID/ns/mnt", CLONE_NEWMNT);
+
+	# Switch your current IPC namespace to the one pointed by /proc/PID/ns/ipc
+	setns("/proc/PID/ns/ipc", CLONE_NEWIPC);
+
+	# Switch your current Network namespace to the one pointed by /proc/PID/ns/net
+	setns("/proc/PID/ns/net", CLONE_NEWNET);
+
+	# Switch your current UTS namespace to the one pointed by /proc/PID/ns/uts
+	setns("/proc/PID/ns/uts", CLONE_NEWUTS);
+
+	# Switch your current Pid namespace to the one pointed by /proc/PID/ns/pid
+	setns("/proc/PID/ns/pid", CLONE_NEWPID);
+
+	# Switch your current User namespace to the one pointed by /proc/PID/ns/user
+	setns("/proc/PID/ns/user", CLONE_NEWUSER);
 
 =head1 DESCRIPTION
 
