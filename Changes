@@ -1,5 +1,14 @@
 Revision history for Perl extension Linux::Setns.
 
+1.00  Fri Aug 17 19:20:10 2016
+	- Almost complete rewrite of the function!
+	- Changed the interface, to setns(). Now instead of file descriptor we directly give it path to a namespace file. This removes the need to convert Perl FD into C FD.
+	- Improved the error handling and now we catch all setns() errors
+	- Replaced __NR_setns with SYS_setns. In order for the change to work I also changed the included headers
+	- Simplified the setns() function in the XS code
+	- Replaced the PPCODE with CODE and now I properly return the RETVAL from the XS code
+	- Added new test for invalid path
+
 0.05  Fri Jun 03 10:52:49 2016
 	- Replaced the Perl 5.18 requirement with Perl 5.10
 
