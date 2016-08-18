@@ -16,18 +16,20 @@ int setns(int fd, int nstype) {
 }
 #endif
 
-#define InputStream	PerlIO *
-
 MODULE = Linux::Setns		PACKAGE = Linux::Setns
 
-SV * setns_wrapper(stream,nstype)
-	InputStream	stream
-	int			nstype
-PPCODE:
+SV * setns_wrapper(path,nstype)
+	SV *	path;
+	int		nstype;
+CODE:
 	int fd = -1;
-	ST(0) = sv_newmortal();
-	fd = PerlIO_fileno(stream);
-	if (setns(fd, nstype) == 0)
-		XPUSHs(sv_2mortal(newSVnv(0)));
-	else
-		XPUSHs(sv_2mortal(newSVnv(errno)));
+	int err = 2;
+	fd = open(SvPV_nolen(path), O_RDONLY);
+	if (fd == -1) {
+		err = 2;
+	} else {
+		err = setns(fd, nstype);
+	}
+	RETVAL = newSVnv(err);
+OUTPUT:
+	RETVAL
