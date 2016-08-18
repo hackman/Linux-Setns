@@ -4,7 +4,7 @@ version:            1.01
 abstract:           Perl interface for Linux setns system call.
 author:
     - Marian Marinov <HackMan>
-license:            unknown
+license:            perl
 distribution_type:  module
 configure_requires:
     ExtUtils::MakeMaker:  0
