@@ -22,16 +22,19 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
-	setns CLONE_ALL CLONE_NEWIPC CLONE_NEWNET CLONE_NEWUTS
+	setns CLONE_ALL CLONE_NEWNS CLONE_NEWIPC CLONE_NEWNET CLONE_NEWUTS CLONE_NEWPID CLONE_NEWUSER
 );
 
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 use constant {
 	CLONE_ALL => 0,
+	CLONE_NEWNS => 0x00020000,
 	CLONE_NEWIPC => 0x08000000,
 	CLONE_NEWNET => 0x40000000,
-	CLONE_NEWUTS => 0x04000000
+	CLONE_NEWUTS => 0x04000000,
+	CLONE_NEWPID => 0x20000000,
+	CLONE_NEWUSER => 0x10000000
 };
 
 require XSLoader;
@@ -77,7 +80,7 @@ Linux::Setns - Perl extension for switching the current process namespace to ano
 	# If you want to change only one of your namespaces you can use any of the bellow examples:
 
 	# Switch your current Mount namespace to the one pointed by /proc/PID/ns/mnt
-	setns("/proc/PID/ns/mnt", CLONE_NEWMNT);
+	setns("/proc/PID/ns/mnt", CLONE_NEWNS);
 
 	# Switch your current IPC namespace to the one pointed by /proc/PID/ns/ipc
 	setns("/proc/PID/ns/ipc", CLONE_NEWIPC);
@@ -102,9 +105,10 @@ namespace you are entering. Also a new CLONE_ALL constat is provided so you
 can join/switch to any type of namespace.
 
 The setns system call allows a process to 'join/switch' one of its namespaces
-to namespace pointed by a file descriptor(usually located in /proc/PID/ns/{ipc,mnt,net,pid,user,uts}).
+to namespaces pointed by a file descriptor(usually located in /proc/PID/ns/{ipc,mnt,net,pid,user,uts}).
 
-Note: keep in mind that using CLONE_NEWIPC, CLONE_NEWNET or CLONE_NEWUTS will fail if the FD is not of that type.
+Note: keep in mind that using any specific CLONE_NEW* constant will fail if the FD path 
+you gave is not of that type.
 
 RETRUN VALUE
 	1 on success
@@ -115,10 +119,13 @@ RETRUN VALUE
 
  setns			- the subroutine
 
- CLONE_ALL		- flag that tells that the FD can be of any namespace type
- CLONE_NEWIPC	- when this flag is used the FD must be from a IPC namespace
- CLONE_NEWNET	- when this flag is used the FD must be from a Network namespace
- CLONE_NEWUTS	- when this flag is used the FD must be from a UTS namespace
+ CLONE_ALL		- flag that tells that the path can be of any namespace type
+ CLONE_NEWNS	- when this flag is used the path must be from another Mount namespace
+ CLONE_NEWIPC	- when this flag is used the path must be from another IPC namespace
+ CLONE_NEWNET	- when this flag is used the path must be from another Network namespace
+ CLONE_NEWUTS	- when this flag is used the path must be from another UTS namespace
+ CLONE_NEWPID	- when this flag is used the path must be from another PID namespace
+ CLONE_NEWUSER	- when this flag is used the path must be from another User namespace
 
 
 =head1 SEE ALSO
