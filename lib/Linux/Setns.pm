@@ -25,7 +25,7 @@ our @EXPORT = qw(
 	setns CLONE_ALL CLONE_NEWIPC CLONE_NEWNET CLONE_NEWUTS
 );
 
-our $VERSION = '0.05';
+our $VERSION = '1.00';
 
 use constant {
 	CLONE_ALL => 0,
@@ -41,23 +41,20 @@ XSLoader::load('Linux::Setns', $VERSION);
 
 sub setns {
 	my $ret = setns_wrapper($_[0], $_[1]);
-	return 1 if ($ret == 0);
-	if ($ret == 1) {
+	if ($ret == 0) {
+		return 1;
+	} elsif ($ret == 1) {
 		print STDERR "Error: setns() The calling thread did not have the required privilege (CAP_SYS_ADMIN) for this operation\n";
-		return 0;
-	}
-	if ($ret == 9) {
-		print STDERR "Error: setns() fd is not a valid file descriptor\n";
-		return 0;
-	}
-	if ($ret == 12) {
+	} elsif ($ret == 2) {
+		print STDERR "Error: setns() Unable to open file $_[0]\n";
+	} elsif ($ret == 9) {
+		print STDERR "Error: setns() FD is not a valid file descriptor\n";
+	} elsif ($ret == 12) {
 		print STDERR "Error: setns() Cannot allocate sufficient memory to change the specified namespace\n";
-		return 0;
+	} elsif ($ret == 22) {
+		print STDERR "Error: setns() FD refers to a namespace whose type does not match that specified in nstype, or there is problem with reassociating the the thread with the specified namespace\n";
 	}
-	if ($ret == 22) {
-		print STDERR "Error: setns() fd refers to a namespace whose type does not match that specified in nstype, or there is problem with reassociating the the thread with the specified namespace\n";
-		return 0;
-	}
+	return 0;
 }
 
 1;
