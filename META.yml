@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Linux-Setns
-version:            1.04
+version:            1.05
 abstract:           Perl interface for Linux setns system call.
 author:
     - Marian Marinov <HackMan>
@@ -10,6 +10,10 @@ configure_requires:
     ExtUtils::MakeMaker:  0
 build_requires:
     ExtUtils::MakeMaker:  0
+provides:
+    Linux::Setns:
+        file: lib/Linux/Setns.pm
+        version: 1.05
 requires:
     perl: 5.010001
 no_index:
@@ -19,7 +23,7 @@ no_index:
 generated_by:       ExtUtils::MakeMaker version 6.55_02
 meta-spec:
     url:      http://module-build.sourceforge.net/META-spec-v1.4.html
-    version:  1.4
+    version: 1.4
 resources:
     repository: https://github.com/hackman/Linux-Setns
     license: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
