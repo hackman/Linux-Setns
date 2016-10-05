@@ -25,6 +25,8 @@ done
 # Update the copyright year
 year=$(date +%Y)
 sed -i "/Copyright.*Marian/s/[0-9]\+/$year/" $proj/LICENSE $proj/lib/Linux/Setns.pm
+# Update the META.json
+$proj/convert-yaml-to-json.pl $proj/META.yml
 
 if [ -f $proj-${ver}.tar.gz ]; then
 	rm -f $proj-${ver}.tar.gz
