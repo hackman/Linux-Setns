@@ -1,5 +1,9 @@
 Revision history for Perl extension Linux::Setns.
 
+1.03  Wed Oct  5 23:08:40 2016
+    - Introduced META.json
+    - Added LICENSE and META.json to the MANIFEST
+
 1.02  Thu Aug 18 15:45:00 2016
 	- Added CLONE_NEWNS, CLONE_NEWPID and CLONE_NEWUSER
 	- Fixed the documentation in Setns.pm
