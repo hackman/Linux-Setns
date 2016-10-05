@@ -13,4 +13,5 @@ if ! [[ $new_version =~  [0-9].[0-9]+ ]]; then
 fi
 
 sed -i "/^version/s/$current_version/$new_version/" META.yml
+sed -i "/\"version\"/s/$current_version/$new_version/" META.json
 sed -i "/our\s*\$VERSION/s/$current_version/$new_version/" lib/Linux/Setns.pm
