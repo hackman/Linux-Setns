@@ -3,7 +3,7 @@ cd ~/Projects/perl-containers/
 
 proj='Linux-Setns'
 ver=$(awk '/^version:/{print $2}' $proj/META.yml)
-excludes='t.pl Setns.so Makefile.old .git build.sh up-version.sh'
+excludes='t.pl Setns.o Setns.so Makefile.old .git build.sh up-version.sh'
 
 if [ -z "$ver" ]; then
 	echo "Unable to get $poj version"
