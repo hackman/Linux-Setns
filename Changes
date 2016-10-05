@@ -1,5 +1,8 @@
 Revision history for Perl extension Linux::Setns.
 
+1.04  Thu Oct  6 02:23:41 2016
+    - Removed wrongly added files in the archive
+
 1.03  Wed Oct  5 23:08:40 2016
     - Introduced META.json
     - Added LICENSE and META.json to the MANIFEST
