@@ -1,9 +1,10 @@
 Changes
+lib/Linux/Setns.pm
+LICENSE
 Makefile.PL
-META.yml
 MANIFEST
+META.yml
 ppport.h
 README
 Setns.xs
 t/Linux-Setns.t
-lib/Linux/Setns.pm
