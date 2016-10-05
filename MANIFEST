@@ -4,6 +4,7 @@ LICENSE
 Makefile.PL
 MANIFEST
 META.yml
+META.json
 ppport.h
 README
 Setns.xs
