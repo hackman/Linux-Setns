@@ -39,7 +39,7 @@
    "provides" : {
       "Linux::Setns" : {
          "file" : "lib/Linux/Setns.pm",
-         "version" : "1.05"
+         "version" : "2.00"
       }
    },
    "release_status" : "stable",
