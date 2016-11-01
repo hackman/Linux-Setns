@@ -5,7 +5,7 @@ Linux-Setns
 
 setns is used to change the current namespace of the process by specifying a file descriptor to a currently available namespace.
 
-So you mus provide a file descriptor and a type (CLONE_ALL, CLONE_NEWIPC, CLONE_NEWNET and CLONE_NEWUTS).
+So you must provide a file descriptor and a type (CLONE_ALL, CLONE_NEWIPC, CLONE_NEWNET, CLONE_NEWPID, CLONE_NEWUSER, CLONE_NEWUTS and CLONE_NEWCGROUP).
 
 On successfull execution your process will now be in the desired namespace.
 In case of failure, error message is printed to STDOUT.
@@ -28,6 +28,7 @@ The interface to setns() changed between 0.05 and 1.00.
 
 Version before 1.00 does not work on machines with older glibc.
 
+CLONE_NEWCGROUP is available only on 4.6 and newer kernels.
 
 BUGS AND SUGGESTIONS
 	contact me at hackman at cpan.org
