@@ -1,5 +1,8 @@
 Revision history for Perl extension Linux::Setns.
 
+2.0   Tue Nov  1 04:58:35 2016
+    - Added CLONE_NEWCGROUP flag
+
 1.04  Thu Oct  6 02:23:41 2016
     - Removed wrongly added files in the archive
 

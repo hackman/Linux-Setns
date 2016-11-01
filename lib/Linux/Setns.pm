@@ -22,10 +22,10 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
-	setns CLONE_ALL CLONE_NEWNS CLONE_NEWIPC CLONE_NEWNET CLONE_NEWUTS CLONE_NEWPID CLONE_NEWUSER
+	setns CLONE_ALL CLONE_NEWNS CLONE_NEWIPC CLONE_NEWNET CLONE_NEWUTS CLONE_NEWPID CLONE_NEWUSER CLONE_NEWCGROUP
 );
 
-our $VERSION = '1.05';
+our $VERSION = '2.00';
 
 use constant {
 	CLONE_ALL => 0,
@@ -34,7 +34,8 @@ use constant {
 	CLONE_NEWNET => 0x40000000,
 	CLONE_NEWUTS => 0x04000000,
 	CLONE_NEWPID => 0x20000000,
-	CLONE_NEWUSER => 0x10000000
+	CLONE_NEWUSER => 0x10000000,
+	CLONE_NEWCGROUP => 0x02000000
 };
 
 require XSLoader;
@@ -97,6 +98,9 @@ Linux::Setns - Perl extension for switching the current process namespace to ano
 	# Switch your current User namespace to the one pointed by /proc/PID/ns/user
 	setns("/proc/PID/ns/user", CLONE_NEWUSER);
 
+	# Switch your current Cgroup namespace to the one pointed by /proc/PID/ns/user
+	setns("/proc/PID/ns/user", CLONE_NEWCGROUP);
+
 =head1 DESCRIPTION
 
 This trivial module provides interface to the Linux setns system call. It
@@ -126,6 +130,7 @@ RETRUN VALUE
  CLONE_NEWUTS	- when this flag is used the path must be from another UTS namespace
  CLONE_NEWPID	- when this flag is used the path must be from another PID namespace
  CLONE_NEWUSER	- when this flag is used the path must be from another User namespace
+ CLONE_NEWCGROUP - when this flag is used the path must be from another Cgroup namespace
 
 
 =head1 SEE ALSO

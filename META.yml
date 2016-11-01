@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Linux-Setns
-version:            1.05
+version:            2.00
 abstract:           Perl interface for Linux setns system call.
 author:
     - Marian Marinov <HackMan>
