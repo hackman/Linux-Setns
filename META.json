@@ -39,7 +39,7 @@
    "provides" : {
       "Linux::Setns" : {
          "file" : "lib/Linux/Setns.pm",
-         "version" : "2.00"
+         "version" : "2.1"
       }
    },
    "release_status" : "stable",
@@ -51,6 +51,6 @@
          "url" : "https://github.com/hackman/Linux-Setns"
       }
    },
-   "version" : "2.00",
+   "version" : "2.1",
    "x_serialization_backend" : "JSON::PP version 2.27203"
 }

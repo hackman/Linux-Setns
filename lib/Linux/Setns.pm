@@ -25,7 +25,7 @@ our @EXPORT = qw(
 	setns CLONE_ALL CLONE_NEWNS CLONE_NEWIPC CLONE_NEWNET CLONE_NEWUTS CLONE_NEWPID CLONE_NEWUSER CLONE_NEWCGROUP
 );
 
-our $VERSION = '2.00';
+our $VERSION = '2.1';
 
 use constant {
 	CLONE_ALL => 0,
@@ -143,7 +143,7 @@ Marian HackMan Marinov, E<lt>hackman@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2016 by Marian HackMan Marinov
+Copyright (C) 2014-2017 by Marian HackMan Marinov
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10.1 or,

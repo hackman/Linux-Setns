@@ -1,4 +1,4 @@
-Copyright (C) 2016 by Marian HackMan Marinov
+Copyright (C) 2014-2017 by Marian HackMan Marinov
 
 Linux-Setns
 ========================
@@ -41,7 +41,7 @@ COPYRIGHT AND LICENCE
 This code is under GPLv2.
 A proper copy of the license can be found in the LICENSE file located in the current directory.
 
-Copyright (C) 2014 by Marian HackMan Marinov
+Copyright (C) 2014-2017 by Marian HackMan Marinov
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.18.1 or,
